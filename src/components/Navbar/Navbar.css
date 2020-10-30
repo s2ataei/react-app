@@ -14,8 +14,18 @@
     padding: 0 1rem;
 }
 
+.App-logo.nav {
+    height: 80%;
+    pointer-events: none;
+    text-align: left;
+  }
+
+.navbar-logo  {
+    height: 100%;
+}
+
 .spacer {
-    flex: 1;
+    flex: 0.8;
 }
 
 .navbar_navigation-items ul {
@@ -36,4 +46,14 @@
 
 .navbar_navigation-items a:hover {
     color:red;
+}
+
+@media (max-width: 768px) {
+    .navbar_navigation-items {
+        display: none;
+    }
+
+    .navbar-logo {
+        display: none;
+    }
 }

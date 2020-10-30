@@ -7,7 +7,10 @@ const navbar = props => (
     <header className="navbar">
         <nav className="navbar__navigation">
             <div>
-                <HamburgerToggleButton />
+                <HamburgerToggleButton click={props.hamburgerMenuClickHandler}/>
+            </div>
+            <div className="navbar-logo">
+                <img src={logo} className="App-logo nav" alt="logo" />
             </div>
             <div className="spacer"/>
             <div className="navbar_navigation-items">
