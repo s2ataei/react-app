@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
+import React, { Component } from 'react';
+
+import Navbar from './components/Navbar/Navbar';
+import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
+import Backdrop from './components/Backdrop/Backdrop';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Navbar />
+      <HamburgerMenu />
+      <Backdrop />
+
+      <div className="App-body">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Built with <code>React.js</code> by Sepehr Ataei.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
     </div>
   );
 }
