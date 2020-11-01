@@ -18,14 +18,25 @@
     height: 80%;
     pointer-events: none;
     text-align: left;
+    display: flex;
   }
 
 .navbar-logo  {
     height: 100%;
+    display:flex;
+    align-items: center;
+}
+
+.navbar-logo a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left:20px;
+    font-size: 1.5rem;
 }
 
 .spacer {
-    flex: 0.8;
+    flex: 1;
 }
 
 .navbar_navigation-items ul {
@@ -36,16 +47,17 @@
 }
 
 .navbar_navigation-items li {
-    padding: 0 0.5rem;
+    padding: 0 1.4rem;
 }
 
-.navbar_navigation-items a{
+.navbar__navigation a{
     color: white;
     text-decoration: none;
+    transition: color 250ms ease;
 }
 
-.navbar_navigation-items a:hover {
-    color:red;
+.navbar__navigation a:hover {
+    color: #61DBFB;
 }
 
 @media (max-width: 768px) {
@@ -53,7 +65,7 @@
         display: none;
     }
 
-    .navbar-logo {
+    .App-logo.nav {
         display: none;
     }
 }

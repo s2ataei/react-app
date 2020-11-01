@@ -10,8 +10,8 @@ const hamburgerMenu = props => {
     return (
         <nav className={menuClasses}>
             <ul>
-                <li>item</li>
-                <li>item</li>
+                <li><a href="#">Python</a></li>
+                <li><a href="#">Deep Learning</a></li>
             </ul>
         </nav>
     );

@@ -1,12 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-
 import React, { Component } from 'react';
+
+import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
 import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
 import Backdrop from './components/Backdrop/Backdrop';
-import { render } from '@testing-library/react';
+import UserProfile from './components/UserProfile/UserProfile';
 
 class App extends Component {
   state = {
@@ -36,10 +35,7 @@ class App extends Component {
         <HamburgerMenu show={this.state.hamburgerMenuOpen} />
         {backdrop}
         <div className="App-body">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Built with <code>React.js</code> by Sepehr Ataei.
-          </p>
+          <UserProfile />
         </div>
       </div>
     );

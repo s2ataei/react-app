@@ -1,0 +1,15 @@
+.social-links {
+    margin-top: 30px;
+}
+
+.social-icon {
+    height:40px;
+    margin-right:23px;
+    transition: transform 250ms;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+}
+
