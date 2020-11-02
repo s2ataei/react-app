@@ -11,8 +11,8 @@ const userprofile = props => (
             <h2>Hi, I'm Sep.</h2>
         </div>
         <div className="user-bio">
-            <p>I'm passionate about building scalable software solutions to important real world problems.</p>
-            <p>During my graduate research I developed deep learning solutions to problems in medical image processing.</p>
+            <p>I'm passionate about building scalable software solutions to real world problems.</p>
+            <p>During my graduate research I developed deep learning solutions to medical imaging problems.</p>
         </div>
         <div className="user-socials">
             <Socials />

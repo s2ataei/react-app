@@ -13,7 +13,6 @@ const socials = props => (
         <img src={linkedin} className="social-icon"/>
         </a>
     </div>
-    
 );
 
 export default socials
