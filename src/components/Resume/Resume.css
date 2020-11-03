@@ -1,3 +1,32 @@
-.download-link {
+.resume {
+    position: relative;
+    text-align: left;
+}
+
+.resume a {
+    text-decoration: none;
     color: white;
+    border-bottom: 1px dashed #61DBFB;
+}
+
+.resume a:hover {
+    border-bottom: 1px solid white;
+}
+
+.download-icon {
+    margin-left: 15px;
+}
+
+ul.awards li {
+    margin-top: 10px;
+}
+
+ul.awards a{
+    text-decoration: none;
+    color:white;
+    border-bottom: 1px dashed #61DBFB;
+}
+
+h4 {
+    font-weight: 500;
 }

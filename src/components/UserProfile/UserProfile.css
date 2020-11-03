@@ -30,3 +30,13 @@
     margin-top: 30px;
     font-size: 1.1rem;
 }
+
+.user-bio a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px dashed #61DBFB;
+}
+
+.user-bio a:hover{
+    border-bottom: 1px solid white;
+}

@@ -13,6 +13,10 @@ const userprofile = props => (
         <div className="user-bio">
             <p>I'm passionate about building scalable software solutions to real world problems.</p>
             <p>During my graduate research I developed deep learning solutions to medical imaging problems.</p>
+            <p>Want to get in touch? Please email me:
+                <a href="mailto:sepehr.ataei222@gmail.com"> sepehr.ataei222@gmail.com
+                </a>
+            </p>
         </div>
         <div className="user-socials">
             <Socials />
