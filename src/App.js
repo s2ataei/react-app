@@ -7,8 +7,8 @@ import Navbar from './components/Navbar/Navbar';
 import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
 import Backdrop from './components/Backdrop/Backdrop';
 import UserProfile from './components/UserProfile/UserProfile';
-import Python from './components/Python/Python';
-import DeepLearning from './components/DeepLearning/DeepLearning';
+import Projects from './components/Projects/Projects';
+import Resume from './components/Resume/Resume';
 
 
 class App extends Component {
@@ -42,8 +42,8 @@ class App extends Component {
           <div className="App-body">
             <Switch>
               <Route path="/" exact component={UserProfile}/>
-              <Route path="/Python" component={Python}/>
-              <Route path="/DeepLearning" component={DeepLearning}/>
+              <Route path="/Resume" component={Resume}/>
+              <Route path="/Projects" component={Projects}/>
             </Switch>
           </div>
         </div>
