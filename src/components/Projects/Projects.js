@@ -3,6 +3,8 @@ import React from 'react';
 import './Projects.css';
 import placeholder from '../../st.png'
 
+import ReceptiveFieldTool from '../ReceptiveFieldTool/Tool';
+
 const projects = props => (
     <div className="container">
         <div className="description">
@@ -17,31 +19,11 @@ const projects = props => (
                 effective receptive field is 5x5.
             </p> 
         </div>
-        <div className="user-input">
-            <div className="user-input_form">
-                <h4>Input Size</h4>
-                <input type="text" class="form-control" value="3"></input>    
-            </div>
-            <div className="user-input_form">
-                <h4>Kernel Size</h4>
-                <input type="text" class="form-control" value="3"></input>
-            </div>
-            <div className="user-input_form">
-                <h4>Stride</h4>
-                <input type="text" class="form-control" value="3"></input>
-            </div>
-            <div className="user-input_form">
-                <h4>Padding</h4>
-                <input type="text" class="form-control" value="3"></input>
-            </div>
-            <div className="user-input_form">
-                <h4>Dilation</h4>
-                <input type="text" class="form-control" value="3"></input>
-            </div>
-        </div>
+        <ReceptiveFieldTool />
         <div className="graphical-output">
             <img src={placeholder}></img>
         </div>
+        
     </div>
 );
 

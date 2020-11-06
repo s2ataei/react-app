@@ -18,11 +18,6 @@
       margin-bottom: 30px;
   }
 
-  .user-input {
-    display: inline-block;
-    margin-bottom: 40px;
-  }
-
   @media (min-width: 768px) {
     .container {
       width: 750px;
