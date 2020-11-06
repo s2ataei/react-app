@@ -12,6 +12,7 @@ class NameForm extends React.Component {
           stride: '',
           padding: '',
           dilation: '',
+          receptiveField: '',
           items: []
     };
   
@@ -32,19 +33,27 @@ class NameForm extends React.Component {
     handleSubmit(event) {
         let items = [...this.state.items]
 
+        let receptiveField;
+
+        if (items.length == 0) {
+            receptiveField = this.state.stride;
+        } else {
+            receptiveField = this.state.stride * items[items.length - 1].receptiveField + (this.state.kernelSize - this.state.stride); 
+        }
+
         items.push({
             inputSize: this.state.inputSize,
             kernelSize: this.state.kernelSize,
             stride: this.state.stride,
             padding: this.state.padding,
-            dilation: this.state.dilation
+            dilation: this.state.dilation,
+            receptiveField,
         });
 
         this.setState({
             items
         })
 
-        alert('A name was submitted: ' + this.state.dilation);
         event.preventDefault();
     }
 
@@ -87,36 +96,38 @@ export default NameForm
 class Table extends React.Component {
     render() {
         const items = this.props.items;
-        return (
-            <div id="Table">
-                <table>
-                    <tbody> 
+        return (    
+            <div id="Tasble">
+                <table class= "table table-dark">
+                    <thead>
                         <tr>
-                        <th>Input Size</th>
-                        <th>Kernel Size</th>
-                        <th>Stride</th>
-                        <th>Dilation</th>
-                        <th>Padding</th>
-                        <th>Output Size</th>
-                        <th>Receptive Field</th>
+                            <th scope="col">Input Size</th>
+                            <th scope="col">Kernel Size</th>
+                            <th scope="col">Stride</th>
+                            <th scope="col">Dilation</th>
+                            <th scope="col">Padding</th>
+                            <th scope="col">Output Size</th>
+                            <th scope="col">Receptive Field</th>
                         </tr>
-                        {items.map(item => {
+                    </thead>
+                    <tbody>
+                        {items.map(item =>  {
                             return (
                                 <tr>
-                                    <td>{item.inputSize}</td>
-                                    <td>{item.kernelSize}</td>
-                                    <td>{item.stride}</td>
-                                    <td>{item.dilation}</td>
-                                    <td>{item.padding}</td>
-                                    <td>{item.stride * 2}</td>
-                                    //  if first item: r = stride, else: r= (stride * r_prev) + (kernelSize - stride)
-                                    <td>gooz</td>
+                                <td>{item.inputSize}</td>
+                                <td>{item.kernelSize}</td>
+                                <td>{item.stride}</td>
+                                <td>{item.dilation}</td>
+                                <td>{item.padding}</td>
+                                <td>gooz</td>
+                                <td>{item.receptiveField}</td>
                                 </tr>
                             );
                         })}
                     </tbody>
                 </table>
-            </div>
-        );  
+            </div>     
+        );    
     }
 }
+

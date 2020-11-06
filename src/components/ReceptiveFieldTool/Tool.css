@@ -1,6 +1,4 @@
 .user-input {
-    display: inline-block;
-    vertical-align: top;
     margin-bottom: 40px;
     margin-right: 20px;
   }
@@ -18,25 +16,9 @@
 .results-table{
     margin-top: 40px;
 }
-table {
-    border-collapse: collapse;
-}
-
-td {
-    padding: 0.75rem;
-    align-items: center;
-}
-
-tr {
-    border-bottom: 0.5px solid gray;
-}
-
-th {
-    padding: 0.75rem;
-}
 
 #Table {
-    margin-top: 40px;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+    max-width: 100%;
+    overflow-x: scroll;
+    margin-top: 30px;
 }
