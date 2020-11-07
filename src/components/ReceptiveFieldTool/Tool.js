@@ -11,13 +11,14 @@ class NameForm extends React.Component {
           kernelSize: '',
           stride: '',
           padding: '',
-          dilation: '',
           receptiveField: '',
+          outputSize: '',
           items: []
     };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.removeEntries = this.removeEntries.bind(this);
     }
   
     handleChange(event) {
@@ -32,8 +33,8 @@ class NameForm extends React.Component {
   
     handleSubmit(event) {
         let items = [...this.state.items]
-
         let receptiveField;
+        let outputSize;
 
         if (items.length == 0) {
             receptiveField = this.state.stride;
@@ -41,13 +42,15 @@ class NameForm extends React.Component {
             receptiveField = this.state.stride * items[items.length - 1].receptiveField + (this.state.kernelSize - this.state.stride); 
         }
 
+        outputSize = Math.floor(((this.state.inputSize - this.state.kernelSize + 2*this.state.padding) / (this.state.stride)) + 1);
+
         items.push({
             inputSize: this.state.inputSize,
             kernelSize: this.state.kernelSize,
             stride: this.state.stride,
             padding: this.state.padding,
-            dilation: this.state.dilation,
             receptiveField,
+            outputSize,
         });
 
         this.setState({
@@ -56,6 +59,20 @@ class NameForm extends React.Component {
 
         event.preventDefault();
     }
+
+    removeEntries (event) {
+        event.preventDefault();
+        this.setState({
+            items: []
+        })
+    }
+
+    removeEntry(event) {
+        this.setState({items: this.state.items.filter(function(item) { 
+            return item !== event.target.value 
+        })});
+    }
+
 
     render() {
         return (
@@ -79,12 +96,10 @@ class NameForm extends React.Component {
                         Padding:
                         <input name="padding" type="number" value={this.state.padding} onChange={this.handleChange} />
                     </label>
-                    <label className="user-input_form">
-                        Dilation:
-                        <input name="dilation" type="number" value={this.state.dilation} onChange={this.handleChange} />
-                    </label>
                     <input className="submit" type="submit" value="Add Layer" />
                 </form>
+                <button onClick={this.removeEntries}>Remove All Layers</button>
+                
                 <Table items={this.state.items} />
             </div>
         );
@@ -97,14 +112,13 @@ class Table extends React.Component {
     render() {
         const items = this.props.items;
         return (    
-            <div id="Tasble">
+            <div id="Table">
                 <table class= "table table-dark">
                     <thead>
                         <tr>
                             <th scope="col">Input Size</th>
                             <th scope="col">Kernel Size</th>
                             <th scope="col">Stride</th>
-                            <th scope="col">Dilation</th>
                             <th scope="col">Padding</th>
                             <th scope="col">Output Size</th>
                             <th scope="col">Receptive Field</th>
@@ -117,9 +131,8 @@ class Table extends React.Component {
                                 <td>{item.inputSize}</td>
                                 <td>{item.kernelSize}</td>
                                 <td>{item.stride}</td>
-                                <td>{item.dilation}</td>
                                 <td>{item.padding}</td>
-                                <td>gooz</td>
+                                <td>{item.outputSize}</td>
                                 <td>{item.receptiveField}</td>
                                 </tr>
                             );

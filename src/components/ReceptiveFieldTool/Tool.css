@@ -1,7 +1,11 @@
 .user-input {
     margin-bottom: 40px;
     margin-right: 20px;
-  }
+}
+
+.user-input form {
+    max-width: 350px;
+}
 
 .user-input h4{
     border-bottom: 1px solid white;
