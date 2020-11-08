@@ -67,17 +67,17 @@ class NameForm extends React.Component {
         })
     }
 
-    removeEntry(event) {
-        this.setState({items: this.state.items.filter(function(item) { 
-            return item !== event.target.value 
-        })});
+    removeEntry(event, index) {
+        event.preventDefault();
+        const items = [...this.state.items]
+        items.splice(index, 1) // remove item at index
+        this.setState({ items });
     }
-
 
     render() {
         return (
             <div className="user-input">
-                <form onSubmit={this.handleSubmit}>    
+                <form onSubmit={this.handleSubmit}>
                     <label className="user-input_form">
                         <h4>Network Input</h4>
                         Input Size:
@@ -99,48 +99,38 @@ class NameForm extends React.Component {
                     <input className="submit" type="submit" value="Add Layer" />
                 </form>
                 <button onClick={this.removeEntries}>Remove All Layers</button>
-                
-                <Table items={this.state.items} />
+                <div id="Table">
+                    <table class= "table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Input Size</th>
+                                <th scope="col">Kernel Size</th>
+                                <th scope="col">Stride</th>
+                                <th scope="col">Padding</th>
+                                <th scope="col">Output Size</th>
+                                <th scope="col">Receptive Field</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.items.map((item, index) =>  {
+                                return (
+                                    <tr>
+                                    <td>{item.inputSize}</td>
+                                    <td>{item.kernelSize}</td>
+                                    <td>{item.stride}</td>
+                                    <td>{item.padding}</td>
+                                    <td>{item.outputSize}</td>
+                                    <td>{item.receptiveField}</td>
+                                    <td><button onClick={(event) => this.removeEntry(event, index)}>Delete</button></td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>     
             </div>
         );
     };
 }
 
 export default NameForm
-
-class Table extends React.Component {
-    render() {
-        const items = this.props.items;
-        return (    
-            <div id="Table">
-                <table class= "table table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">Input Size</th>
-                            <th scope="col">Kernel Size</th>
-                            <th scope="col">Stride</th>
-                            <th scope="col">Padding</th>
-                            <th scope="col">Output Size</th>
-                            <th scope="col">Receptive Field</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {items.map(item =>  {
-                            return (
-                                <tr>
-                                <td>{item.inputSize}</td>
-                                <td>{item.kernelSize}</td>
-                                <td>{item.stride}</td>
-                                <td>{item.padding}</td>
-                                <td>{item.outputSize}</td>
-                                <td>{item.receptiveField}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-            </div>     
-        );    
-    }
-}
-
