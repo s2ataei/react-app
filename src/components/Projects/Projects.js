@@ -19,11 +19,7 @@ const projects = props => (
                 effective receptive field is 5x5.
             </p> 
         </div>
-        <ReceptiveFieldTool />
-        <div className="graphical-output">
-            <img src={placeholder}></img>
-        </div>
-        
+        <ReceptiveFieldTool />      
     </div>
 );
 

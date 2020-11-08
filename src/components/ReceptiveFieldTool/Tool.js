@@ -1,6 +1,9 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
+import 'zingchart/es6';
+import ZingChart from 'zingchart-react';
+
 import './Tool.css';
 
 class NameForm extends React.Component {
@@ -13,7 +16,13 @@ class NameForm extends React.Component {
           padding: '',
           receptiveField: '',
           outputSize: '',
-          items: []
+          items: [],
+          config: {
+              type: 'line'
+            },
+              series: [{
+                  values: []
+              }]
     };
   
       this.handleChange = this.handleChange.bind(this);
@@ -51,10 +60,15 @@ class NameForm extends React.Component {
             padding: this.state.padding,
             receptiveField,
             outputSize,
+
         });
 
         this.setState({
-            items
+            items,
+            series: {
+                values: [receptiveField]
+            }
+
         })
 
         event.preventDefault();
@@ -96,9 +110,9 @@ class NameForm extends React.Component {
                         Padding:
                         <input name="padding" type="number" value={this.state.padding} onChange={this.handleChange} />
                     </label>
-                    <input className="submit" type="submit" value="Add Layer" />
+                    <input className="submit add" type="submit" value="Add Layer" />
                 </form>
-                <button onClick={this.removeEntries}>Remove All Layers</button>
+                <button className="submit delete" onClick={this.removeEntries}>Remove All Layers</button>
                 <div id="Table">
                     <table class= "table table-dark">
                         <thead>
@@ -121,13 +135,16 @@ class NameForm extends React.Component {
                                     <td>{item.padding}</td>
                                     <td>{item.outputSize}</td>
                                     <td>{item.receptiveField}</td>
-                                    <td><button onClick={(event) => this.removeEntry(event, index)}>Delete</button></td>
+                                    <td><button className="submit delete" onClick={(event) => this.removeEntry(event, index)}>Delete</button></td>
                                     </tr>
                                 );
                             })}
                         </tbody>
                     </table>
-                </div>     
+                </div>  
+                <div>
+                    <ZingChart data={this.state.config} series={this.state.series}/>
+                </div>
             </div>
         );
     };

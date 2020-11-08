@@ -26,3 +26,24 @@
     overflow-x: scroll;
     margin-top: 30px;
 }
+
+.submit {
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    border: none;
+    background-color: #61DBFB;
+    color: white;
+    padding: 0 22px;
+    font-weight: 700;
+    text-align: center;
+    height: 40px;
+}
+
+.delete {
+    background-color: #E41C34;
+}
+
+.add {
+    background-color: teal;
+}
