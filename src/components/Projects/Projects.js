@@ -1,26 +1,30 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './Projects.css';
 import placeholder from '../../st.png'
 
-import ReceptiveFieldTool from '../ReceptiveFieldTool/Tool';
+import Conv2DTool from '../Conv2DTool/Tool';
+import SortingVisualizer from '../SortingVisualizer/Tool';
 
 const projects = props => (
-    <div className="container">
-        <div className="description">
-            <h1>Receptive Field Calculator</h1>
-            <p>
-                A convolutional layer operates over a local region of the input to that layer with the size of this local 
-                region usually specified directly. You can also compute the effective receptive field of a convolutional 
-                layer which is the size of the input region to the network that contributes to a layers’ activations. 
-                For example, if the first convolutional layer has a receptive field of 3x3 then it’s effective receptive field 
-                is also 3x3 since it operates directly on the input. However if the second layer of a 
-                convolutional network also has a 3x3 filter, then it’s (local) receptive field is 3x3, but it’s 
-                effective receptive field is 5x5.
-            </p> 
+        <div className="container">
+            <div className="projects-nav">
+                <ul>
+                    <Link to="/Projects/Conv2DTool">
+                        <li><a>Conv2D Layer Receptive Field and Output Size</a></li>
+                    </Link>
+                    <Link to="/Projects/SortingVisualizer">
+                        <li><a>Sorting Visualizer</a></li>
+                    </Link>
+                </ul>     
+                <Switch>
+                    <Route path="/Projects/Conv2DTool" component={Conv2DTool} />
+                    <Route path="/Projects/SortingVisualizer" component={SortingVisualizer} />
+                </Switch>
+            </div>
         </div>
-        <ReceptiveFieldTool />      
-    </div>
+        
 );
 
 export default projects;

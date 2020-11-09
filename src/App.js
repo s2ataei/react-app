@@ -7,8 +7,9 @@ import Navbar from './components/Navbar/Navbar';
 import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
 import Backdrop from './components/Backdrop/Backdrop';
 import UserProfile from './components/UserProfile/UserProfile';
-import Projects from './components/Projects/Projects';
+import Conv2DTool from './components/Conv2DTool/Tool';
 import Resume from './components/Resume/Resume';
+import SortingVisualizer from './components/SortingVisualizer/Tool';
 
 
 class App extends Component {
@@ -45,7 +46,8 @@ class App extends Component {
             <Switch>
               <Route path="/" exact component={UserProfile}/>
               <Route path="/Resume" component={Resume}/>
-              <Route path="/Projects" component={Projects}/>
+              <Route path="/DeepLearning" component={Conv2DTool}/>
+              <Route path="/Algorithms" component={SortingVisualizer} />
             </Switch>
           </div>
         </div>

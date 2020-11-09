@@ -13,13 +13,16 @@ const navbar = props => (
             </div>
             <div className="navbar-logo">
                 <img src={logo} className="App-logo nav" alt="logo" />
-                <a href="/">Sepehr Ataei</a>
+                <Link to="/"><a>Sepehr Ataei</a></Link>
             </div>
             <div className="spacer"/>
                 <div className="navbar_navigation-items">
                     <ul>
-                        <Link to="/Projects">
-                            <li><a>Projects</a></li>
+                        <Link to="/DeepLearning">
+                            <li><a>Deep Learning</a></li>
+                        </Link>
+                        <Link to="/Algorithms">
+                            <li><a>Algorithms</a></li>
                         </Link>
                         <Link to="/Resume">
                             <li><a>Resume</a></li>

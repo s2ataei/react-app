@@ -8,17 +8,6 @@
     max-width: 90%;
   }
 
-  .graphical-output {
-    display: inline-block;
-    vertical-align: center;
-    margin-left: 40px;    
-  }
-
-  .graphical-output img{
-      max-width: 100%;
-      margin-bottom: 30px;
-  }
-
 
   @media (min-width: 768px) {
     .container {
