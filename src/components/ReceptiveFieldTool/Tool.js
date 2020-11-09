@@ -8,73 +8,57 @@ import './Tool.css';
 
 class NameForm extends React.Component {
     constructor(props) {
-      super(props);
-      this.state = {
-          inputSize: '',
-          kernelSize: '',
-          stride: '',
-          padding: '',
-          receptiveField: '',
-          outputSize: '',
-          items: [],
-          config: {
-              type: 'line'
+        super(props);
+        this.state = {
+            inputSize: '',
+            kernelSize: '',
+            stride: '',
+            padding: '',
+            receptiveField: '',
+            outputSize: '',
+            items: [],
+            config: {
+                series: [{
+                    values: []
+                }],
+                type: 'line'
             },
-              series: [{
-                  values: []
-              }]
-    };
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.removeEntries = this.removeEntries.bind(this);
+        };
+
+        this.chart = React.createRef()
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.removeEntries = this.removeEntries.bind(this);
     }
-  
+
     handleChange(event) {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-        
-      this.setState({
-          [name]: value
+
+        this.setState({
+            [name]: Number(value)
         });
     }
-  
+
     handleSubmit(event) {
+        event.preventDefault();
         let items = [...this.state.items]
-        let receptiveField;
-        let outputSize;
-
-        if (items.length == 0) {
-            receptiveField = this.state.stride;
-        } else {
-            receptiveField = this.state.stride * items[items.length - 1].receptiveField + (this.state.kernelSize - this.state.stride); 
-        }
-
-        outputSize = Math.floor(((this.state.inputSize - this.state.kernelSize + 2*this.state.padding) / (this.state.stride)) + 1);
 
         items.push({
-            inputSize: this.state.inputSize,
             kernelSize: this.state.kernelSize,
             stride: this.state.stride,
             padding: this.state.padding,
-            receptiveField,
-            outputSize,
-
         });
 
         this.setState({
             items,
-            series: {
-                values: [receptiveField]
-            }
-
+            inputSize: this.state.inputSize,
         })
-
-        event.preventDefault();
     }
 
-    removeEntries (event) {
+    removeEntries(event) {
         event.preventDefault();
         this.setState({
             items: []
@@ -89,6 +73,23 @@ class NameForm extends React.Component {
     }
 
     render() {
+        const items = this.state.items.reduce((items, { padding, stride, kernelSize, ...item }, index) => {
+            const inputSize = index === 0 ? this.state.inputSize : items[index - 1].outputSize
+            items.push({
+                inputSize,
+                padding,
+                stride,
+                kernelSize,
+                ...item,
+                receptiveField: index === 0 ? stride : stride * items[index - 1].receptiveField + kernelSize - stride,
+                outputSize: Math.floor(((inputSize - kernelSize + 2 * padding) / (stride)) + 1)
+            })
+            return items
+        }, [])
+
+        const values = items.map((item) => item.receptiveField)
+
+
         return (
             <div className="user-input">
                 <form onSubmit={this.handleSubmit}>
@@ -114,7 +115,7 @@ class NameForm extends React.Component {
                 </form>
                 <button className="submit delete" onClick={this.removeEntries}>Remove All Layers</button>
                 <div id="Table">
-                    <table class= "table table-dark">
+                    <table className="table table-dark">
                         <thead>
                             <tr>
                                 <th scope="col">Input Size</th>
@@ -126,24 +127,24 @@ class NameForm extends React.Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.items.map((item, index) =>  {
+                            {items.map((item, index) => {
                                 return (
                                     <tr>
-                                    <td>{item.inputSize}</td>
-                                    <td>{item.kernelSize}</td>
-                                    <td>{item.stride}</td>
-                                    <td>{item.padding}</td>
-                                    <td>{item.outputSize}</td>
-                                    <td>{item.receptiveField}</td>
-                                    <td><button className="submit delete" onClick={(event) => this.removeEntry(event, index)}>Delete</button></td>
+                                        <td>{item.inputSize}</td>
+                                        <td>{item.kernelSize}</td>
+                                        <td>{item.stride}</td>
+                                        <td>{item.padding}</td>
+                                        <td>{item.outputSize}</td>
+                                        <td>{item.receptiveField}</td>
+                                        <td><button className="submit delete" onClick={(event) => this.removeEntry(event, index)}>Delete</button></td>
                                     </tr>
                                 );
                             })}
                         </tbody>
                     </table>
-                </div>  
+                </div>
                 <div>
-                    <ZingChart data={this.state.config} series={this.state.series}/>
+                    <ZingChart ref={this.chart} data={{ type: 'line', series: [{ values }] }} />
                 </div>
             </div>
         );
