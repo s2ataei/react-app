@@ -1,0 +1,19 @@
+
+.columns {
+    display: inline-block;
+    border: 1px solid white;
+    width:48px;
+    height:48px;
+}
+
+.code {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+    padding: 1.3rem;
+    
+}
+
