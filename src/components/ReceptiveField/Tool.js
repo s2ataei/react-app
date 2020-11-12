@@ -71,7 +71,7 @@ class Conv2DTool extends React.Component {
     removeEntry(event, index) {
         event.preventDefault();
         const items = [...this.state.items]
-        items.splice(index, 1) // remove item at index
+        items.splice(index, 1)
         this.setState({ items });
     }
 
@@ -94,7 +94,7 @@ class Conv2DTool extends React.Component {
 
         return (
             <div className="user-input">
-                <h1>Conv2D Calculator</h1>
+                <h1>Receptive Field and Output Size</h1>
                     <p>
                         A convolutional layer operates over a local region of the input to that layer with the size of this local 
                         region usually specified directly. You can also compute the effective receptive field of a convolutional 

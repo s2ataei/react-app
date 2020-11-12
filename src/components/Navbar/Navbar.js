@@ -18,11 +18,11 @@ const navbar = props => (
             <div className="spacer"/>
                 <div className="navbar_navigation-items">
                     <ul>
-                        <Link to="/DeepLearning">
-                            <li><a>Deep Learning</a></li>
+                        <Link to="/ReceptiveField">
+                            <li><a>Receptive Field</a></li>
                         </Link>
-                        <Link to="/Algorithms">
-                            <li><a>Algorithms</a></li>
+                        <Link to="/ConvVisualizer">
+                            <li><a>Conv2D Visualizer</a></li>
                         </Link>
                         <Link to="/Resume">
                             <li><a>Resume</a></li>

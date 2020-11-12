@@ -3,7 +3,7 @@ import React from 'react';
 
 import './Tool.css';
 
-class SortingVisualizer extends React.Component {
+class ConvVisualizer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -142,12 +142,11 @@ output = model(image)`}
                 <div className="output">
                     {this.state.output.map(items =>
                     <div className="rows">
-                        {items.map(item => <div className="columns">{item.toFixed(1)}</div>)}
+                        {items.map(item => <div className="columns">{item.toFixed(0)}</div>)}
                     </div>)}
                 </div>
             </div>
             
-        
         );
     }
 
@@ -155,4 +154,4 @@ output = model(image)`}
 
 }
 
-export default SortingVisualizer
+export default ConvVisualizer

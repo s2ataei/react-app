@@ -7,9 +7,9 @@ import Navbar from './components/Navbar/Navbar';
 import HamburgerMenu from './components/HamburgerMenu/HamburgerMenu';
 import Backdrop from './components/Backdrop/Backdrop';
 import UserProfile from './components/UserProfile/UserProfile';
-import Conv2DTool from './components/Conv2DTool/Tool';
+import ReceptiveField from './components/ReceptiveField/Tool';
 import Resume from './components/Resume/Resume';
-import SortingVisualizer from './components/SortingVisualizer/Tool';
+import ConvVisualizer from './components/ConvVisualizer/Tool';
 
 
 class App extends Component {
@@ -46,8 +46,8 @@ class App extends Component {
             <Switch>
               <Route path="/" exact component={UserProfile}/>
               <Route path="/Resume" component={Resume}/>
-              <Route path="/DeepLearning" component={Conv2DTool}/>
-              <Route path="/Algorithms" component={SortingVisualizer} />
+              <Route path="/ReceptiveField" component={ReceptiveField}/>
+              <Route path="/ConvVisualizer" component={ConvVisualizer} />
             </Switch>
           </div>
         </div>
