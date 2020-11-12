@@ -1,9 +1,14 @@
+.full-width {
+    width:  100%;
+}
 
 .columns {
     display: inline-block;
     border: 1px solid white;
-    width:48px;
-    height:48px;
+    width:58px;
+    height:58px;
+    text-align: center;
+    padding: 13px 0;
 }
 
 .code {
@@ -17,3 +22,15 @@
     
 }
 
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    justify-content: space-evenly;
+}
+
+.input {
+    margin-bottom: 20px;
+}
