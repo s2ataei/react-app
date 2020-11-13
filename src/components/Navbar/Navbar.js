@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 import './Navbar.css';
 import logo from '../../logo.svg';
@@ -13,20 +13,20 @@ const navbar = props => (
             </div>
             <div className="navbar-logo">
                 <img src={logo} className="App-logo nav" alt="logo" />
-                <Link to="/"><a>Sepehr Ataei</a></Link>
+                <NavLink activeClassName="active" to="/"><a>Sepehr Ataei</a></NavLink>
             </div>
             <div className="spacer"/>
                 <div className="navbar_navigation-items">
                     <ul>
-                        <Link to="/ReceptiveField">
+                        <NavLink activeClassName="active" to="/ReceptiveField">
                             <li><a>Receptive Field</a></li>
-                        </Link>
-                        <Link to="/ConvVisualizer">
+                        </NavLink>
+                        <NavLink activeClassName="active" to="/ConvVisualizer">
                             <li><a>Conv2D Visualizer</a></li>
-                        </Link>
-                        <Link to="/Resume">
+                        </NavLink>
+                        <NavLink activeClassName="active" to="/Resume">
                             <li><a>Resume</a></li>
-                        </Link>
+                        </NavLink>
                     </ul>
                 </div>
         </nav>

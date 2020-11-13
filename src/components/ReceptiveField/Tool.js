@@ -95,14 +95,15 @@ class Conv2DTool extends React.Component {
         return (
             <div className="user-input">
                 <h1>Receptive Field and Output Size</h1>
-                    <p>
-                        A convolutional layer operates over a local region of the input to that layer with the size of this local 
-                        region usually specified directly. You can also compute the effective receptive field of a convolutional 
-                        layer which is the size of the input region to the network that contributes to a layers’ activations. 
+                    <p>The receptive field is defined as the size of the region in the input space that the following layer feature maps were influenced by.
+                        A convolutional layer operates over a local region of the input iteratively untill the entire image has been covered. The translation of the convolutional kernel across the image
+                        is dictated by the stride. The effective receptive field of a particular convolutional 
+                        layer in the network is the size of the region in the input which contributes to said layers’ activations. 
                         For example, if the first convolutional layer has a receptive field of 3x3 then it’s effective receptive field 
                         is also 3x3 since it operates directly on the input. However if the second layer of a 
                         convolutional network also has a 3x3 filter, then it’s (local) receptive field is 3x3, but it’s 
-                        effective receptive field is 5x5.
+                        effective receptive field is 5x5. This tool calculates both the effective receptive field and output size at each layer.
+                        This tool is built for inputs and kernels of square shape. 
                     </p> 
                 <form onSubmit={this.handleSubmit}>
                     <label className="user-input_form">
