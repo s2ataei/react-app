@@ -1,24 +1,28 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import './Resume.css';
 import download from './download.svg';
 
 const resume = props => (
     <div className="resume">
-        <h1>Resume</h1>
         <h3>
-            <a className="download-link" href="/resume.pdf" download>   
-                Click here to download PDF
+            <Link to="/files/resume.pdf" target="_blank" download>Click here to download PDF</Link>
                 <img src={download} className="download-icon" />
-            </a>
         </h3>
         <h1>Summary</h1>
         <ul>
             <li>
-                sum
+                3+ years of Python application developement experience using libraries such as scikit-learn, matplotlib and scipy
             </li>
             <li>
-                stuff
+                2+ years of web developement experience  
+            </li>
+            <li>
+                Proficient user of open source projects such as React, Tensorflow, Django, Chalice
+            </li>
+            <li>
+                Solid foundations in tools such as Git, Bash and RDBMS.
             </li>
         </ul>
         <h1>Awards</h1>
@@ -31,14 +35,37 @@ const resume = props => (
                 Mitacs Accelerate Grant</a></li>
         </ul>
         <h1>Experience</h1>
-        <h4>Software Engineering Intern</h4>
-        <p>Internship position facilitated by the Mitacs Accelerate program in partnership with Dr. Paul Babyn. 
-            More information about the project can be found on the  
-            <a href="https://www.mitacs.ca/en/projects/low-dose-computed-tomography-denoising-using-deep-learning"> Mitacs website</a>
+        <h3 className="margin"> Software Engineering Intern: 12/2019 - 08/2020</h3>
+        <p className="subtitle">Paid internship position funded by the Mitacs Accelerate program in partnership with Dr. Paul Babyn.</p> 
+            <p>In this role I developed a deep learning solution used to reduce patient's exposure to radiation during CT 
+            examinations. The proposal abstract can be found on the  
+            <a href="https://www.mitacs.ca/en/projects/low-dose-computed-tomography-denoising-using-deep-learning"> Mitacs website. </a>
+            This work was published in the IJCNN 2020 proceedings and the pre-print version is <a href="#">available online via arXiv.
+            </a>
+            The source code for the project is available on <a href="">GitHub</a> 
+            </p>
+        <h3 className="margin">Graduate Assistant: 09/2018 - 07/2020</h3>
+        <p className="subtitle">Paid teaching assistant position at Ryerson University</p>
+        <p>In this role I lead labs and tutorials for undergraduate engineering courses in Java, signal processing and image processing. 
+            I was responsible for invigilating and grading examinations and preparing lessons for tutorials. </p>
+        <h3 className="margin">Software Engineer: 05/2018 - 09/2018 </h3>
+        <p>Full-time role at <a href="https://wolf.ca">WOLF Advanced Technology. </a> </p>
+        <p>
+            In this role I built business tools using Visual Basic and developed MRP (materials requirement planning) reports using SQL queries.
+            I improved the efficiency of the MRP process by developing software tools to automate inventory analysis and procurement. My contributions were tools used for parsing Bill of Materials
+            (BOM) data and calculating a list of parts to procure by reconciling available inventory. 
+        </p>
+        <h3 className="margin">Business Developement Engineer: 06/2017 - 05/2018 </h3>
+        <p>Full-time role at <a href="https://wolf.ca">WOLF Advanced Technology. </a> </p>
+        <p>
+            In this role I was responsible for handling sales opportunites and managing orders from the lead stage to the delivery stage. 
+            I contributed to 70% year over year growth in sales by writing proposals and quotations and working to improve on-time delivery.
+            After recieving purchase orders from clients I worked alongside the materials requirement planning team to allocate inventory and 
+            procure the necessary components based on the Bill of Materials (BOM).
         </p>
         <h1>Education</h1>
-        <h4>Ryerson University Bachelor of Engineering: Class of 2017</h4>
-        <h4>Ryerson University Master of Applied Science: Class of 2020 </h4>
+        <p>Ryerson University Bachelor of Engineering: Class of 2017</p>
+        <p>Ryerson University Master of Applied Science: Class of 2020 </p>
     </div>
 );
 

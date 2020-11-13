@@ -45,6 +45,16 @@ class ConvVisualizer extends React.Component {
 
     generateOutput(event) {
         event.preventDefault();
+        console.log(this.state.input.length)
+        console.log(this.state.kernel.length)
+
+        if (this.state.input.length == 1) {
+            alert('image is undefined');
+            return
+        } else if (this.state.kernel.length == 1) {
+            alert('MyModel() is undefined');
+            return
+        }
 
         const hi = this.state.input[0].length;
         const wi = this.state.input[1].length;
@@ -90,7 +100,8 @@ image = np.random.rand(6,6)`}
                         </code>
                     </pre>
                     <button className="submit add" onClick={this.generateInput}>Run</button>
-                </div>  
+                </div>
+                <h2><code>image</code></h2>  
                 {this.state.input.map(item => 
                 <div className="rows">
                     {item.map(item => <div className="columns">{item}</div> )}
@@ -114,12 +125,14 @@ image = np.random.rand(6,6)`}
                 </div>
                 <div className="flex">
                     <div className="input">
+                        <h2><code>image</code></h2>  
                         {this.state.input.map(item => 
                         <div className="rows">
                             {item.map(item => <div className="columns">{item}</div> )}
                         </div>)}
                     </div>
                     <div className="kernel">
+                        <h2><code>filters=1,<br></br>kernel_size=3,<br></br>kernel_initializer=initializer</code></h2>  
                         {this.state.kernel.map(items =>
                         <div className="rows">
                             {items.map(item => <div className="columns">{item}</div>)}
@@ -140,6 +153,7 @@ output = model(image)`}
                     <button className="submit add" onClick={this.generateOutput}>Run</button>
                 </div>
                 <div className="output">
+                    <h2><code>output</code></h2>
                     {this.state.output.map(items =>
                     <div className="rows">
                         {items.map(item => <div className="columns">{item.toFixed(0)}</div>)}
