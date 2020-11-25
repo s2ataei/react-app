@@ -40,9 +40,9 @@ const resume = props => (
             <p>In this role I developed a deep learning solution used to reduce patient's exposure to radiation during CT 
             examinations. The proposal abstract can be found on the  
             <a href="https://www.mitacs.ca/en/projects/low-dose-computed-tomography-denoising-using-deep-learning" target="_blank"> Mitacs website. </a>
-            This work was published in the IJCNN 2020 proceedings and the pre-print version is <a href="https://arxiv.org/abs/2006.14738" target="_blank">available online via arXiv. &nbps;
+            This work was published in the IJCNN 2020 proceedings and the pre-print version is <a href="https://arxiv.org/abs/2006.14738" target="_blank">available online via arXiv. &nbsp;
             </a>
-            The source code for the project is available on <a href="https://github.com/s2ataei/research" target="_blank">GitHub</a> 
+            The source code for the project is available on <a href="https://github.com/s2ataei/research" target="_blank">GitHub.</a> 
             </p>
         <h3 className="margin">Graduate Assistant: 09/2018 - 07/2020</h3>
         <p className="subtitle">Paid teaching assistant position at Ryerson University</p>

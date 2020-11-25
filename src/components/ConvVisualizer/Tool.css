@@ -1,5 +1,7 @@
 .full-width {
     width:  100%;
+    max-width: 60rem;
+    font-size:1.2rem;
 }
 
 .columns {
@@ -19,7 +21,7 @@
     margin-right: 0;
     text-align: left;
     padding: 1.3rem;
-    
+    font-size: 1.3rem;
 }
 
 .flex {

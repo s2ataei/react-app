@@ -132,7 +132,7 @@ image = np.random.rand(6,6)`}
                         </div>)}
                     </div>
                     <div className="kernel">
-                        <h2><code>filters=1,<br></br>kernel_size=3,<br></br>kernel_initializer=initializer</code></h2>  
+                        <h2><code>filters=1,<br></br>kernel_size=3</code></h2>  
                         {this.state.kernel.map(items =>
                         <div className="rows">
                             {items.map(item => <div className="columns">{item}</div>)}
