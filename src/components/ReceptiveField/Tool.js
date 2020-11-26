@@ -41,7 +41,7 @@ class Conv2DTool extends React.Component {
         const name = target.name;
 
         this.setState({
-            [name]: Number(value)
+            [name]: value && Number(value)
         });
     }
 
